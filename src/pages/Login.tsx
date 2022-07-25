@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { auth, provider } from '../firebase-config'
-import { signInWithEmailAndPassword, signInWithPopup, } from 'firebase/auth'
+import { auth } from '../firebase-config'
+import { signInWithEmailAndPassword, } from 'firebase/auth'
 
 
 
@@ -32,6 +32,16 @@ const Login = ({ setIsAuth }: LoginProps) => {
       )
       .catch(error => {
         console.log(error)
+        if (
+          error.code === 'auth/wrong-password'
+        ) {
+          alert('Wrong password')
+        }
+        else if (
+          error.code === 'auth/user-not-found'
+        ) {
+          alert('User not found')
+        }
       }
       );
   }
@@ -40,14 +50,14 @@ const Login = ({ setIsAuth }: LoginProps) => {
 
   return (
     <>
-      <h1>Sign in</h1>
-      <form onSubmit={handleSubmit}>
-        <label>Email</label>
-        <input type="email" value={email} onChange={e => setEmail(e.target.value)} />
-        <label>Password</label>
-        <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
-        <button>login</button>
-      </form>
+      <div className='wrapper'>
+        <h1 className='title'>Sign in</h1>
+        <form onSubmit={handleSubmit}>
+          <input type="email" value={email} onChange={e => setEmail(e.target.value)} className='input' placeholder='email' />
+          <input type="password" value={password} onChange={e => setPassword(e.target.value)} className='input' placeholder='password' />
+          <button className='submit'>login</button>
+        </form>
+      </div>
     </>
   )
 }

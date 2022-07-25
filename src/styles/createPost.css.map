@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,SAAS,CAAC;EACN,KAAK,ECHI,IAAI;CDIhB",
+    "sources": [
+        "createPost.scss",
+        "variables.scss"
+    ],
+    "names": [],
+    "file": "createPost.css"
+}

@@ -1,0 +1,31 @@
+.title {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 32px;
+}
+
+.homeWrapper {
+  background-color: #fff;
+  width: 500px;
+  margin: 20px auto;
+  padding: 10px 0px;
+  border-radius: 10px;
+}
+
+@media (max-width: 750px) {
+  .homeWrapper {
+    width: 500px;
+  }
+}
+
+@media (max-width: 500px) {
+  .homeWrapper {
+    width: 300px;
+  }
+}
+
+.homeWrapper .text {
+  text-align: center;
+  margin: 10px auto;
+}
+/*# sourceMappingURL=home.css.map */

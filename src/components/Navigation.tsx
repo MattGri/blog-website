@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import { auth } from '../firebase-config'
 import '../styles/navigation.scss';
 
-
 interface NavigationProps {
     isAuth: boolean
     setIsAuth: (isAuth: boolean) => void
@@ -32,14 +31,18 @@ const Navigation = ({ isAuth, setIsAuth }: NavigationProps) => {
             {
                 !isAuth ?
                     <>
-                        <Link to="/login" className='items'>Login</Link>
                         <Link to="/register" className='items'>Register</Link>
+                        <Link to="/login" className='items'>Login</Link>
                     </>
                     :
-                    <button onClick={handleSignOut} className='signout'>Log out</button>
+                    <>
+                        <button onClick={handleSignOut} className='signout'>Log out</button>
+                        <Link to="/createpost" className='items'>Create Post</Link>
+                    </>
+
             }
 
-            <Link to="/createpost" className='items'>Create Post</Link>
+
         </nav>
     )
 }

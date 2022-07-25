@@ -1,20 +1,26 @@
-.container {
+@import '../styles/variables.scss';
+
+@mixin center {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #24252a;
+}
+
+.container {
+    @include center;
+    background-color: $blackBackground;
     height: 40px;
 
     .items {
         text-decoration: none;
-        color: #fff;
+        color: $whiteColor;
         margin: 0 10px;
     }
 
     .signout {
         cursor: pointer;
-        color: #fff;
-        background-color: #24252a;
+        color: $whiteColor;
+        background-color: $blackBackground;
         border: none;
         font-size: 16px;
     }
