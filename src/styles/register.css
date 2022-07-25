@@ -1,0 +1,19 @@
+.title {
+  text-align: center;
+}
+
+.register {
+  display: block;
+  margin: 0 auto;
+  cursor: pointer;
+  color: #fff;
+  background-color: #333333;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.register:hover {
+  background-color: #222222;
+}
+/*# sourceMappingURL=register.css.map */
