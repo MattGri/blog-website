@@ -1,0 +1,28 @@
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #24252a;
+  height: 40px;
+}
+
+.container .items {
+  text-decoration: none;
+  color: #fff;
+  margin: 0 10px;
+}
+
+.container .signout {
+  cursor: pointer;
+  color: #fff;
+  background-color: #24252a;
+  border: none;
+  font-size: 16px;
+}
+/*# sourceMappingURL=navigation.css.map */
