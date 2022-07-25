@@ -76,7 +76,7 @@ const Home = () => {
               <h1 className='title'>{posted.title}</h1>
               <p className='text'>{posted.post}</p>
               <p className='text'>{posted.user}</p>
-              <button onClick={() => deletePost(posted.id)} className='register'>delete</button>
+              <button onClick={() => deletePost(posted.id)} className='submit'>delete</button>
             </div>
           </>
         ))}
