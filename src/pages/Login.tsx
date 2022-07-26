@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../firebase-config";
 import { signInWithEmailAndPassword } from "firebase/auth";
@@ -10,6 +10,11 @@ interface LoginProps {
 const Login = ({ setIsAuth }: LoginProps) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  useEffect(() => {
+    document.title = "Login";
+  }
+    , []);
 
   const navigate = useNavigate();
 

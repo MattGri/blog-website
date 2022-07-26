@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { addDoc, collection } from "firebase/firestore";
 import { auth } from "../firebase-config";
 import { firestore } from "../firebase-config";
@@ -9,6 +9,11 @@ import "../styles/createPost.scss";
 const CreatePost = () => {
   const [title, setTitle] = useState("");
   const [post, setPost] = useState("");
+
+  useEffect(() => {
+    document.title = "Create post";
+  }
+    , []);
 
   const navigate = useNavigate();
 
