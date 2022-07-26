@@ -7,7 +7,7 @@ A blog website in which you can create account and login. After you're logged in
 - html
 - sass
 - typescript
-- REACT (styled components)
+- REACT 
 - firebase
 
 # Screenshots 📺
