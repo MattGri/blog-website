@@ -21,4 +21,4 @@ If you have any issues, please let me know on mateusz.grzybowski98@gmail.com
 
 # Live 📍
 
-https://creative-taffy-03150a.netlify.app/
+https://sparkling-pasca-1be346.netlify.app/
