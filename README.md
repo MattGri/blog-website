@@ -13,6 +13,7 @@ A blog website in which you can create account and login. After you're logged in
 # Screenshots 📺
 
 ![image](https://user-images.githubusercontent.com/61913031/180788912-7f36d47e-8523-497d-9a92-6ff05eb66f58.png)
+![image](https://user-images.githubusercontent.com/61913031/180972947-a97e0015-cd71-48a9-af74-613733fc4425.png)
 
 # Issues 🔍
 
@@ -20,4 +21,4 @@ If you have any issues, please let me know on mateusz.grzybowski98@gmail.com
 
 # Live 📍
 
-https://stately-moxie-a5df4f.netlify.app/
+https://creative-taffy-03150a.netlify.app/
