@@ -1,27 +1,27 @@
-@import '../styles/variables.scss';
+@import "../styles/variables.scss";
 
 @mixin center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .container {
-    @include center;
+  @include center;
+  background-color: $blackBackground;
+  height: 40px;
+
+  .items {
+    text-decoration: none;
+    color: $whiteColor;
+    margin: 0 10px;
+  }
+
+  .signout {
+    cursor: pointer;
+    color: $whiteColor;
     background-color: $blackBackground;
-    height: 40px;
-
-    .items {
-        text-decoration: none;
-        color: $whiteColor;
-        margin: 0 10px;
-    }
-
-    .signout {
-        cursor: pointer;
-        color: $whiteColor;
-        background-color: $blackBackground;
-        border: none;
-        font-size: 16px;
-    }
+    border: none;
+    font-size: 16px;
+  }
 }

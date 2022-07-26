@@ -1,20 +1,23 @@
-# Project Overview  🎉
-A blog website in which you can create account and login. After you're logged in you can create a post and delete it. When you create a post it will show the author of the post. 
+# Project Overview 🎉
 
+A blog website in which you can create account and login. After you're logged in you can create a post and delete it. When you create a post it will show the author of the post.
 
 # Technologies 🔧
-* html
-* sass
-* typescript
-* REACT (styled components)
-* firebase
+
+- html
+- sass
+- typescript
+- REACT (styled components)
+- firebase
 
 # Screenshots 📺
+
 ![image](https://user-images.githubusercontent.com/61913031/180788912-7f36d47e-8523-497d-9a92-6ff05eb66f58.png)
 
 # Issues 🔍
- 
- If you have any issues, please let me know on mateusz.grzybowski98@gmail.com
+
+If you have any issues, please let me know on mateusz.grzybowski98@gmail.com
 
 # Live 📍
+
 https://stately-moxie-a5df4f.netlify.app/
