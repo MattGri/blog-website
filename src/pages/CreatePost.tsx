@@ -17,7 +17,7 @@ const CreatePost = () => {
 
   const navigate = useNavigate();
 
-  const [user, loading, error] = useAuthState(auth);
+  const [user] = useAuthState(auth);
 
   const createPost = () => {
     if (title === "" || post === "") {

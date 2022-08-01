@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../firebase-config";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { Alert, styled } from '@mui/material';
 
 interface LoginProps {
   setIsAuth: (isAuth: boolean) => void;
@@ -10,6 +11,23 @@ interface LoginProps {
 const Login = ({ setIsAuth }: LoginProps) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState<boolean | string>(false);
+
+  const SuccessAlert = styled(Alert)`
+        background-color: #0f7512;
+        width: 700px;
+        margin: 10px auto;
+        color: #fff;
+    `;
+
+
+  const ErrorAlert = styled(Alert)`
+        background-color: #ff0000;
+        width: 700px;
+        margin: 10px auto;
+        color: #fff;
+    `;
 
   useEffect(() => {
     document.title = "Login";
@@ -25,17 +43,26 @@ const Login = ({ setIsAuth }: LoginProps) => {
         console.log("User signed in successfully");
         localStorage.setItem("isAuth", "true");
         setIsAuth(true);
-        setEmail("");
-        setPassword("");
-        navigate("/");
+        setSuccess(true);
+        setTimeout(() => {
+          setEmail('');
+          setPassword('');
+          navigate('/');
+        }
+          , 2000);
       })
       .catch((error) => {
         console.log(error);
-        if (error.code === "auth/wrong-password") {
-          alert("Wrong password");
-        } else if (error.code === "auth/user-not-found") {
-          alert("User not found");
+        if (error.code === 'auth/wrong-password') {
+          setError('Wrong password');
         }
+        else if (error.code === 'auth/user-not-found') {
+          setError('User not found');
+        }
+        setTimeout(() => {
+          setError(false);
+        }
+          , 2000);
       });
   };
 
@@ -50,6 +77,7 @@ const Login = ({ setIsAuth }: LoginProps) => {
             onChange={(e) => setEmail(e.target.value)}
             className="input"
             placeholder="email"
+            required
           />
           <input
             type="password"
@@ -57,10 +85,14 @@ const Login = ({ setIsAuth }: LoginProps) => {
             onChange={(e) => setPassword(e.target.value)}
             className="input"
             placeholder="password"
+            required
           />
           <button className="submit">login</button>
         </form>
       </div>
+
+      {success && <SuccessAlert severity='success'>Success</SuccessAlert>}
+      {error && <ErrorAlert severity="warning">{error}</ErrorAlert>}
     </>
   );
 };
