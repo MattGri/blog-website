@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { auth } from "../firebase-config";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth, googleProvider } from "../firebase-config";
+import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { Alert, styled, } from '@mui/material';
 import "../styles/register.scss";
+import GoogleIcon from '@mui/icons-material/Google';
 
-const Register = () => {
+interface RegisterProps {
+  setIsAuth: (isAuth: boolean) => void;
+}
+
+
+const Register = ({ setIsAuth }: RegisterProps) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [success, setSuccess] = useState(false);
@@ -66,27 +72,47 @@ const Register = () => {
       });
   };
 
+  const signInWithGoogle = () => {
+    signInWithPopup(auth, googleProvider)
+      .then(() => {
+        console.log('User logged in');
+        localStorage.setItem('isAuth', 'true');
+        setIsAuth(true);
+        navigate('/');
+      }
+      )
+      .catch(error => {
+        console.log(error);
+        setError(error);
+      }
+      );
+  }
+
   return (
     <>
       <div className="wrapper">
         <h1 className="title">Create account</h1>
         <form onSubmit={handleSubmit}>
+          <label className="labelText">Email address</label>
           <input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="email"
             className="input"
             required
           />
+          <label className="labelText">Password</label>
           <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            placeholder="password"
             className="input"
             required
           />
+          <p className="text">or use google account</p>
+            <div className="googleIcon" onClick={signInWithGoogle} >
+              <GoogleIcon />
+            </div>
           <button className="submit">Register</button>
         </form>
       </div>

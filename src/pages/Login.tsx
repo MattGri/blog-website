@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { auth } from "../firebase-config";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth,googleProvider } from "../firebase-config";
+import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { Alert, styled } from '@mui/material';
+import { Link } from "react-router-dom";
+import GoogleIcon from '@mui/icons-material/Google';
 
 interface LoginProps {
   setIsAuth: (isAuth: boolean) => void;
@@ -66,29 +68,50 @@ const Login = ({ setIsAuth }: LoginProps) => {
       });
   };
 
+  const signInWithGoogle = () => {
+    signInWithPopup(auth, googleProvider)
+      .then(() => {
+        console.log('User logged in');
+        localStorage.setItem('isAuth', 'true');
+        setIsAuth(true);
+        navigate('/');
+      }
+      )
+      .catch(error => {
+        console.log(error);
+        setError(error);
+      }
+      );
+  }
+
   return (
     <>
       <div className="wrapper">
         <h1 className="title">Sign in</h1>
         <form onSubmit={handleSubmit}>
+          <label className="labelText">Email address</label>
           <input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className="input"
-            placeholder="email"
             required
           />
+          <label className="labelText">Password</label>
           <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             className="input"
-            placeholder="password"
             required
           />
+          <p className="text">or use google account</p>
+          <div className="googleIcon" onClick={signInWithGoogle} >
+            <GoogleIcon />
+          </div>
           <button className="submit">login</button>
         </form>
+        <Link to='/forgotpassword' className="forgot">Forgot password?</Link>
       </div>
 
       {success && <SuccessAlert severity='success'>Success</SuccessAlert>}

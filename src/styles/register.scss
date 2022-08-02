@@ -28,12 +28,45 @@
     color: #fff;
   }
 
+  .labelText {
+    color: #fff;
+  }
+
   .input {
     display: block;
     margin: 10px auto;
-    padding: 10px;
+    padding: 4px 8px;
+    height: 36px;
+    width: 100%;
+    
     outline: none;
     border-radius: 10px;
+
+    &:focus {
+      border: 1px solid #005c9d;
+    }
+  }
+
+  .text{
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+  }
+
+  .googleIcon {
+    width: 72px;
+    height: 72px;
+    padding: 23px;
+    border: 1px solid #e6e6e6;
+    background-color: #fff;
+    cursor: pointer;
+    margin: 10px auto;
+    transition: border 0.25s ease-in-out;
+
+
+    &:hover {
+      border: 1px solid #005c9d;
+    }
   }
 }
 
