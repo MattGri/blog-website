@@ -7,8 +7,8 @@ import "../styles/home.scss";
 
 const Home = () => {
   const [user, loading, error] = useAuthState(auth);
-
   const [posts, setPosts] = useState<any>([]);
+
 
   useEffect(() => {
     document.title = "Home";
@@ -35,6 +35,8 @@ const Home = () => {
       });
   };
 
+
+
   return (
     <>
       <h1 className="title">Blog app</h1>
@@ -56,9 +58,16 @@ const Home = () => {
               <h1 className="title">{posted.title}</h1>
               <p className="text">{posted.post}</p>
               <p className="text">{posted.user}</p>
-              <button onClick={() => deletePost(posted.id)} className="submit">
-                delete
-              </button>
+              {         
+                user?.email === posted.user ? (
+                  <>
+                  <button className="submit" onClick={() => deletePost(posted.id)}>Delete</button>
+                  </>
+                ) : (
+                  <></>
+                )
+
+              }
             </div>
           </>
         ))}

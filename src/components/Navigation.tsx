@@ -10,6 +10,8 @@ interface NavigationProps {
 }
 
 const Navigation = ({ isAuth, setIsAuth }: NavigationProps) => {
+
+
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
@@ -21,6 +23,8 @@ const Navigation = ({ isAuth, setIsAuth }: NavigationProps) => {
         console.log(error);
       });
   };
+
+ 
 
   return (
     <nav className="container">
