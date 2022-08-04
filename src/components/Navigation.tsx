@@ -11,7 +11,6 @@ interface NavigationProps {
 
 const Navigation = ({ isAuth, setIsAuth }: NavigationProps) => {
 
-
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
@@ -25,7 +24,6 @@ const Navigation = ({ isAuth, setIsAuth }: NavigationProps) => {
   };
 
  
-
   return (
     <nav className="container">
       <Link to="/" className="items">

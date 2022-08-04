@@ -5,6 +5,7 @@ import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { Alert, styled } from '@mui/material';
 import { Link } from "react-router-dom";
 import GoogleIcon from '@mui/icons-material/Google';
+import '../styles/login.scss';
 
 interface LoginProps {
   setIsAuth: (isAuth: boolean) => void;
@@ -109,7 +110,7 @@ const Login = ({ setIsAuth }: LoginProps) => {
           <div className="googleIcon" onClick={signInWithGoogle} >
             <GoogleIcon />
           </div>
-          <button className="submit">login</button>
+          <button className="submit">Login</button>
         </form>
         <Link to='/forgotpassword' className="forgot">Forgot password?</Link>
       </div>

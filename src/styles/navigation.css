@@ -3,11 +3,11 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   background-color: #24252a;
   height: 40px;
 }
@@ -16,6 +16,12 @@
   text-decoration: none;
   color: #fff;
   margin: 0 10px;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.container .items:hover {
+  color: #4d4d4d;
 }
 
 .container .signout {

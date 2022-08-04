@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "AAEA,AAAA,SAAS,CAAC;EACN,KAAK,ECHI,IAAI;CDIhB",
+    "mappings": "AAEA,AAAA,SAAS,CAAC;EACR,KAAK,ECHM,IAAI;CDIhB",
     "sources": [
         "createPost.scss",
         "variables.scss"
