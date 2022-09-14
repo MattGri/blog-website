@@ -6,16 +6,14 @@ import { Alert, styled, } from '@mui/material';
 import "../styles/register.scss";
 import GoogleIcon from '@mui/icons-material/Google';
 
-interface RegisterProps {
-  setIsAuth: (isAuth: boolean) => void;
-}
 
 
-const Register = ({ setIsAuth }: RegisterProps) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [success, setSuccess] = useState(false);
-  const [error, setError] = useState<any>(false);
+
+const Register = () => {
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [success, setSuccess] = useState<boolean>(false);
+  const [error, setError] = useState<string | boolean>(false);
 
   const SuccessAlert = styled(Alert)`
         background-color: #0f7512;
@@ -76,8 +74,6 @@ const Register = ({ setIsAuth }: RegisterProps) => {
     signInWithPopup(auth, googleProvider)
       .then(() => {
         console.log('User logged in');
-        localStorage.setItem('isAuth', 'true');
-        setIsAuth(true);
         navigate('/');
       }
       )
@@ -110,9 +106,9 @@ const Register = ({ setIsAuth }: RegisterProps) => {
             required
           />
           <p className="text">or use google account</p>
-            <div className="googleIcon" onClick={signInWithGoogle} >
-              <GoogleIcon />
-            </div>
+          <div className="googleIcon" onClick={signInWithGoogle} >
+            <GoogleIcon />
+          </div>
           <button className="submit">Register</button>
         </form>
       </div>

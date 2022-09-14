@@ -2,26 +2,49 @@ import React, { useState, useEffect } from "react";
 import { addDoc, collection } from "firebase/firestore";
 import { auth } from "../firebase-config";
 import { firestore } from "../firebase-config";
+import { Alert, styled, } from '@mui/material';
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import "../styles/createPost.scss";
 
 const CreatePost = () => {
-  const [title, setTitle] = useState("");
-  const [post, setPost] = useState("");
+  const [title, setTitle] = useState<string>("");
+  const [post, setPost] = useState<string>("");
+  const [success, setSuccess] = useState<boolean>(false);
+  const [error, setError] = useState<string | boolean>(false);
 
   useEffect(() => {
     document.title = "Create post";
   }
     , []);
 
+
+  const SuccessAlert = styled(Alert)`
+        background-color: #0f7512;
+        width: 700px;
+        margin: 10px auto;
+        color: #fff;
+    `;
+
+  const ErrorAlert = styled(Alert)`
+        background-color: #ff0000;
+        width: 700px;
+        margin: 10px auto;
+        color: #fff;
+    `;
+
   const navigate = useNavigate();
 
   const [user] = useAuthState(auth);
 
-  const createPost = () => {
+  const createPost = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     if (title === "" || post === "") {
-      return alert("Please fill in all fields");
+      setError("Please fill all the fields");
+
+      return setTimeout(() => {
+        setError(false);
+      }, 2000);
     }
     const postsCollection = collection(firestore, "posts");
     addDoc(postsCollection, {
@@ -33,7 +56,12 @@ const CreatePost = () => {
         console.log("Post created successfully");
         setTitle("");
         setPost("");
-        navigate("/");
+        setSuccess(true);
+        console.log(postsCollection);
+        return setTimeout(() => {
+          setSuccess(false);
+          navigate("/");
+        }, 2000);
       })
       .catch((error) => {
         console.log(error);
@@ -44,27 +72,32 @@ const CreatePost = () => {
     <>
       <div className="wrapper">
         <h1 className="title">Create Post</h1>
-        <div>
-          <label className="subtitle">Title: </label>
-          <input
-            type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            className="input"
-          />
-        </div>
-        <div>
-          <label className="subtitle">Post: </label>
-          <textarea
-            value={post}
-            onChange={(e) => setPost(e.target.value)}
-            className="input"
-          />
-        </div>
-        <button onClick={createPost} className="submit">
-          create post
-        </button>
+        <form onSubmit={createPost}>
+          <div>
+            <label className="subtitle">Title: </label>
+            <input
+              type="text"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              className="input"
+            />
+          </div>
+          <div>
+            <label className="subtitle">Post: </label>
+            <textarea
+              value={post}
+              onChange={(e) => setPost(e.target.value)}
+              className="input"
+            />
+          </div>
+          <button className="submit">
+            create post
+          </button>
+        </form>
       </div>
+
+      {success && <SuccessAlert severity="success">Post created successfully</SuccessAlert>}
+      {error && <ErrorAlert severity="error">{error}</ErrorAlert>}
     </>
   );
 };

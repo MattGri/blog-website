@@ -7,11 +7,7 @@ import { Link } from "react-router-dom";
 import GoogleIcon from '@mui/icons-material/Google';
 import '../styles/login.scss';
 
-interface LoginProps {
-  setIsAuth: (isAuth: boolean) => void;
-}
-
-const Login = ({ setIsAuth }: LoginProps) => {
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [success, setSuccess] = useState(false);
@@ -44,8 +40,6 @@ const Login = ({ setIsAuth }: LoginProps) => {
     signInWithEmailAndPassword(auth, email, password)
       .then(() => {
         console.log("User signed in successfully");
-        localStorage.setItem("isAuth", "true");
-        setIsAuth(true);
         setSuccess(true);
         setTimeout(() => {
           setEmail('');
@@ -73,8 +67,6 @@ const Login = ({ setIsAuth }: LoginProps) => {
     signInWithPopup(auth, googleProvider)
       .then(() => {
         console.log('User logged in');
-        localStorage.setItem('isAuth', 'true');
-        setIsAuth(true);
         navigate('/');
       }
       )

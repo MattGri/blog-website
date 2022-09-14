@@ -5,9 +5,17 @@ import { collection, deleteDoc, doc, onSnapshot } from "firebase/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
 import "../styles/home.scss";
 
+interface Post {
+  id: string;
+  title?: string;
+  post?: string;
+  user?: string;
+}
+
+
 const Home = () => {
   const [user, loading, error] = useAuthState(auth);
-  const [posts, setPosts] = useState<any>([]);
+  const [posts, setPosts] = useState<Post[]>([]);
 
 
   useEffect(() => {
@@ -35,8 +43,6 @@ const Home = () => {
       });
   };
 
-
-
   return (
     <>
       <h1 className="title">Blog app</h1>
@@ -46,7 +52,7 @@ const Home = () => {
         <p>Error: {error.message}</p>
       ) : user ? (
         <>
-          <p className="title">Welcome {user.email}</p>
+          <p className="title">Welcome {user.displayName || user.email}</p>
         </>
       ) : (
         <></>
@@ -58,10 +64,10 @@ const Home = () => {
               <h1 className="title">{posted.title}</h1>
               <p className="text">{posted.post}</p>
               <p className="text">{posted.user}</p>
-              {         
+              {
                 user?.email === posted.user ? (
                   <>
-                  <button className="submit" onClick={() => deletePost(posted.id)}>Delete</button>
+                    <button className="submit" onClick={() => deletePost(posted.id)}>Delete</button>
                   </>
                 ) : (
                   <></>

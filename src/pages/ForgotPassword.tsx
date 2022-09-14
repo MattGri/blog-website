@@ -11,8 +11,8 @@ const ForgotPassword = () => {
         , []);
 
 
-    const [email, setEmail] = useState('');
-    const [success, setSuccess] = useState(false);
+    const [email, setEmail] = useState<string>('');
+    const [success, setSuccess] = useState<boolean>(false);
 
     const SuccessAlert = styled(Alert)`
         background-color: #0f7512;
