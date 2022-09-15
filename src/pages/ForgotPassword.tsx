@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { auth } from '../firebase-config';
+import { auth } from '../config/firebase-config';
 import { sendPasswordResetEmail } from 'firebase/auth';
 import { Alert, styled } from '@mui/material';
 

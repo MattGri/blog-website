@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { addDoc, collection } from "firebase/firestore";
-import { auth } from "../firebase-config";
-import { firestore } from "../firebase-config";
+import { auth } from "../config/firebase-config";
+import { firestore } from "../config/firebase-config";
 import { Alert, styled, } from '@mui/material';
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
@@ -57,7 +57,6 @@ const CreatePost = () => {
         setTitle("");
         setPost("");
         setSuccess(true);
-        console.log(postsCollection);
         return setTimeout(() => {
           setSuccess(false);
           navigate("/");

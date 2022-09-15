@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { auth,googleProvider } from "../firebase-config";
+import { auth,googleProvider } from "../config/firebase-config";
 import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { Alert, styled } from '@mui/material';
 import { Link } from "react-router-dom";

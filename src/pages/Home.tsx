@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { auth } from "../firebase-config";
-import { firestore } from "../firebase-config";
+import { auth } from "../config/firebase-config";
+import { firestore } from "../config/firebase-config";
 import { collection, deleteDoc, doc, onSnapshot } from "firebase/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
 import "../styles/home.scss";
@@ -16,7 +16,6 @@ interface Post {
 const Home = () => {
   const [user, loading, error] = useAuthState(auth);
   const [posts, setPosts] = useState<Post[]>([]);
-
 
   useEffect(() => {
     document.title = "Home";
