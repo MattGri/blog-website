@@ -27,31 +27,25 @@ const Navigation = () => {
       <Link to="/" className="items">
         Home
       </Link>
-      <>
-        <Link to="/register" className="items">
-          Register
-        </Link>
-        <Link to="/login" className="items">
-          Login
-        </Link>
-      </>
       {
-        user && (
+        user ? (
           <>
-
             <button onClick={handleSignOut} className="signout">
               Log out
             </button>
             <Link to="/createpost" className="items">
               Create Post
             </Link>
-            {
-              auth.currentUser?.photoURL ? (
-                <img className='profileImage' src={auth.currentUser?.photoURL || ""} alt='' />
-              ) : (
-                <></>
-              )
-            }
+            
+          </>
+        ) : (
+          <>
+            <Link to="/register" className="items">
+              Register
+            </Link>
+            <Link to="/login" className="items">
+              Login
+            </Link>
           </>
 
         )
