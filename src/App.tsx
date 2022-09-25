@@ -7,6 +7,7 @@ import Register from "./pages/Register";
 import CreatePost from "./pages/CreatePost";
 import Navigation from "./components/Navigation";
 import ForgotPassword from "./pages/ForgotPassword";
+import ErrorPage from "./pages/ErrorPage";
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/createpost" element={<CreatePost />} />
           <Route path="/forgotpassword" element={<ForgotPassword />} />
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
       </div>
     </Router>

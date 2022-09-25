@@ -51,7 +51,7 @@ const Home = () => {
         <p>Error: {error.message}</p>
       ) : user ? (
         <>
-          <p className="title">Welcome {user.displayName || user.email}</p>
+          <p className="title">Welcome {user.email}</p>
         </>
       ) : (
         <></>
