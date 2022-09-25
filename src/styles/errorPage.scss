@@ -2,12 +2,20 @@
     text-align: center;
     text-transform: uppercase;
     margin: 20px 0px;
+
+    @media (max-width: 320px) {
+        font-size: 25px;
+    }
 }
 
 .errorText {
     text-align: center;
 
-    .home{
+    @media (max-width: 425px) {
+        font-size: 13px;
+    }
+
+    .home {
         color: blue;
         cursor: pointer;
     }
