@@ -1,6 +1,6 @@
 # Project Overview 🎉
 
-A blog website in which you can create account and login. After you're logged in you can create a post and delete it. When you create a post it will show the author of the post.
+A blog website in which you can create account and sign in. After you're logged in, you can create a post and delete it. When you create a post it will show the author of the post.
 
 # Technologies 🔧
 
@@ -12,8 +12,10 @@ A blog website in which you can create account and login. After you're logged in
 
 # Screenshots 📺
 
-![image](https://user-images.githubusercontent.com/61913031/180788912-7f36d47e-8523-497d-9a92-6ff05eb66f58.png)
-![image](https://user-images.githubusercontent.com/61913031/180972947-a97e0015-cd71-48a9-af74-613733fc4425.png)
+![image](https://user-images.githubusercontent.com/61913031/193800433-ea77b970-0521-4b2d-a312-856598051047.png)
+![image](https://user-images.githubusercontent.com/61913031/193800934-07edd85c-fd69-4990-b935-2ccee3d84618.png)
+![image](https://user-images.githubusercontent.com/61913031/193801080-72c071ae-7ba5-4582-acd5-a92a87928d48.png)
+
 
 # Issues 🔍
 
@@ -21,4 +23,4 @@ If you have any issues, please let me know on mateusz.grzybowski98@gmail.com
 
 # Live 📍
 
-https://sparkling-pasca-1be346.netlify.app/
+https://poetic-rolypoly-f9f22f.netlify.app/
