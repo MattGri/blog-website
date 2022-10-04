@@ -5,18 +5,22 @@ import { auth } from "../config/firebase-config";
 import { useAuthState } from "react-firebase-hooks/auth";
 import "../styles/navigation.scss";
 
-
 const Navigation = () => {
 
+
+
+
   const [user] = useAuthState(auth);
+
+
 
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
-        console.log("User signed out successfully");
+        // console.log("User signed out successfully");
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       });
   };
 
@@ -36,7 +40,7 @@ const Navigation = () => {
             <Link to="/createpost" className="items">
               Create Post
             </Link>
-            
+            <p className="items">{user?.displayName}</p>
           </>
         ) : (
           <>
@@ -47,7 +51,6 @@ const Navigation = () => {
               Login
             </Link>
           </>
-
         )
       }
     </nav>

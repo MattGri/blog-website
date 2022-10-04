@@ -81,22 +81,22 @@ const Login = () => {
     <>
       <div className="wrapper">
         <h1 className="title">Sign in</h1>
-        <form onSubmit={handleSubmit}>
-          <label className="labelText">Email address</label>
+        <form className="formSubmit" onSubmit={handleSubmit}>
           <input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className="input"
             required
+            placeholder="email"
           />
-          <label className="labelText">Password</label>
           <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             className="input"
             required
+            placeholder="password"
           />
           <p className="text">or use google account</p>
           <div className="googleIcon" onClick={signInWithGoogle} >

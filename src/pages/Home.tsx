@@ -29,6 +29,8 @@ const Home = () => {
       });
       setPosts(posts);
     });
+ 
+    
   }, []);
 
   const deletePost = (id: string) => {
@@ -51,7 +53,8 @@ const Home = () => {
         <p>Error: {error.message}</p>
       ) : user ? (
         <>
-          <p className="title">Welcome {user.email}</p>
+          <p className="title">Welcome {user.displayName}</p>
+          
         </>
       ) : (
         <></>
@@ -64,10 +67,8 @@ const Home = () => {
               <p className="text">{posted.post}</p>
               <p className="text">{posted.user}</p>
               {
-                user?.email === posted.user ? (
-                  <>
-                    <button className="submit" onClick={() => deletePost(posted.id)}>Delete</button>
-                  </>
+                user?.displayName === posted.user ? (
+                  <button className="delete" onClick={() => deletePost(posted.id)}>Delete</button>              
                 ) : (
                   <></>
                 )
@@ -77,6 +78,7 @@ const Home = () => {
           </>
         ))}
       </ul>
+      
     </>
   );
 };

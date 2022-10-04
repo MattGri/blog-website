@@ -50,7 +50,7 @@ const CreatePost = () => {
     addDoc(postsCollection, {
       title,
       post,
-      user: user?.email,
+      user: user?.displayName,
     })
       .then(() => {
         console.log("Post created successfully");
@@ -71,22 +71,22 @@ const CreatePost = () => {
     <>
       <div className="wrapper">
         <h1 className="title">Create Post</h1>
-        <form onSubmit={createPost}>
+        <form className="formSubmit" onSubmit={createPost}>
           <div>
-            <label className="subtitle">Title: </label>
             <input
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               className="input"
+              placeholder="Title"
             />
           </div>
           <div>
-            <label className="subtitle">Post: </label>
             <textarea
               value={post}
               onChange={(e) => setPost(e.target.value)}
               className="input"
+              placeholder="Post"
             />
           </div>
           <button className="submit">

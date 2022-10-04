@@ -44,11 +44,10 @@ const ForgotPassword = () => {
         <>
             <div className='wrapper'>
                 <h1 className='title'>Forgot Password</h1>
-                <form onSubmit={resetPassword}>
-                    <label className='labelText'>
-                        Email address
-                    </label>
-                    <input className='input' type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                <form className='formSubmit' onSubmit={resetPassword}>
+                    <input className='input' type="email"
+                    placeholder='email'
+                    value={email} onChange={(e) => setEmail(e.target.value)} />
                     <button className='submit'>Reset password</button>
                 </form>
 

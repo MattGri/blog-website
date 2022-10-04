@@ -1,5 +1,9 @@
 .forgot {
-    color: #fff;
+    color: #5d5b8d;
     margin-top: 10px;
     text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
 }
