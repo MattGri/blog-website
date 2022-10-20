@@ -15,7 +15,7 @@
 }
 
 .homeWrapper {
-  
+
   background-color: $whiteColor;
   width: 500px;
   margin: 20px auto;
@@ -39,7 +39,7 @@
     display: block;
     margin: 0 auto;
     cursor: pointer;
-    color: #fff;
+    color: $whiteColor;
     background-color: #7b96ec;
     padding: 10px;
     font-weight: bold;

@@ -39,11 +39,11 @@ const Register = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-  
+
 
     createUserWithEmailAndPassword(auth, email, password)
       .then(() => {
-       
+
         auth.currentUser && updateProfile(auth.currentUser, {
           displayName: displayName,
 
@@ -102,7 +102,6 @@ const Register = () => {
       <div className="wrapper">
         <h1 className="title">Create account</h1>
         <form className="formSubmit" onSubmit={handleSubmit}>
-         
           <input
             type="text"
             className="input"
@@ -110,8 +109,6 @@ const Register = () => {
             value={displayName}
             onChange={(e) => setDisplayName(e.target.value)}
           />
-
-        
           <input
             type="email"
             value={email}
@@ -120,7 +117,6 @@ const Register = () => {
             className="input"
             required
           />
-         
           <input
             type="password"
             value={password}
