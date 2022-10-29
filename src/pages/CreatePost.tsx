@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { addDoc, collection } from "firebase/firestore";
 import { auth } from "../config/firebase-config";
 import { firestore } from "../config/firebase-config";
-import { Alert, styled, } from '@mui/material';
+import { Alert, styled } from "@mui/material";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import "../styles/createPost.scss";
@@ -15,23 +15,21 @@ const CreatePost = () => {
 
   useEffect(() => {
     document.title = "Create post";
-  }
-    , []);
-
+  }, []);
 
   const SuccessAlert = styled(Alert)`
-        background-color: #0f7512;
-        width: 700px;
-        margin: 10px auto;
-        color: #fff;
-    `;
+    background-color: #0f7512;
+    width: 700px;
+    margin: 10px auto;
+    color: #fff;
+  `;
 
   const ErrorAlert = styled(Alert)`
-        background-color: #ff0000;
-        width: 700px;
-        margin: 10px auto;
-        color: #fff;
-    `;
+    background-color: #ff0000;
+    width: 700px;
+    margin: 10px auto;
+    color: #fff;
+  `;
 
   const navigate = useNavigate();
 
@@ -89,13 +87,15 @@ const CreatePost = () => {
               placeholder="Post"
             />
           </div>
-          <button className="submit">
-            create post
-          </button>
+          <button className="submit">create post</button>
         </form>
       </div>
 
-      {success && <SuccessAlert severity="success">Post created successfully</SuccessAlert>}
+      {success && (
+        <SuccessAlert severity="success">
+          Post created successfully
+        </SuccessAlert>
+      )}
       {error && <ErrorAlert severity="error">{error}</ErrorAlert>}
     </>
   );

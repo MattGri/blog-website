@@ -10,7 +10,6 @@ import ForgotPassword from "./pages/ForgotPassword";
 import ErrorPage from "./pages/ErrorPage";
 
 function App() {
-
   return (
     <Router>
       <div className="App">

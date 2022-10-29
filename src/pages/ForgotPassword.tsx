@@ -1,60 +1,59 @@
-import React, { useState, useEffect } from 'react';
-import { auth } from '../config/firebase-config';
-import { sendPasswordResetEmail } from 'firebase/auth';
-import { Alert, styled } from '@mui/material';
+import React, { useState, useEffect } from "react";
+import { auth } from "../config/firebase-config";
+import { sendPasswordResetEmail } from "firebase/auth";
+import { Alert, styled } from "@mui/material";
 
 const ForgotPassword = () => {
+  useEffect(() => {
+    document.title = "Forgot Password";
+  }, []);
 
-    useEffect(() => {
-        document.title = "Forgot Password";
-    }
-        , []);
+  const [email, setEmail] = useState<string>("");
+  const [success, setSuccess] = useState<boolean>(false);
 
+  const SuccessAlert = styled(Alert)`
+    background-color: #0f7512;
+    width: 700px;
+    margin: 10px auto;
+    color: #fff;
+  `;
 
-    const [email, setEmail] = useState<string>('');
-    const [success, setSuccess] = useState<boolean>(false);
+  const resetPassword = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    sendPasswordResetEmail(auth, email).then(
+      () => {
+        console.log("Email sent");
+        setEmail("");
+        setSuccess(true);
 
-    const SuccessAlert = styled(Alert)`
-        background-color: #0f7512;
-        width: 700px;
-        margin: 10px auto;
-        color: #fff;
-    `;
+        setInterval(() => {
+          setSuccess(false);
+        }, 3000);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  };
 
-    const resetPassword = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        sendPasswordResetEmail(auth, email)
-            .then(() => {
-                console.log("Email sent");
-                setEmail('');
-                setSuccess(true);
+  return (
+    <>
+      <div className="wrapper">
+        <h1 className="title">Forgot Password</h1>
+        <form className="formSubmit" onSubmit={resetPassword}>
+          <input
+            className="input"
+            type="email"
+            placeholder="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <button className="submit">Reset password</button>
+        </form>
+      </div>
+      {success && <SuccessAlert severity="success">Email sent</SuccessAlert>}
+    </>
+  );
+};
 
-                setInterval(() => {
-                    setSuccess(false);
-                }
-                    , 3000);
-            }
-                , (error) => {
-                    console.log(error);
-                }
-            );
-    }
-
-    return (
-        <>
-            <div className='wrapper'>
-                <h1 className='title'>Forgot Password</h1>
-                <form className='formSubmit' onSubmit={resetPassword}>
-                    <input className='input' type="email"
-                    placeholder='email'
-                    value={email} onChange={(e) => setEmail(e.target.value)} />
-                    <button className='submit'>Reset password</button>
-                </form>
-
-            </div>
-            {success && <SuccessAlert severity="success">Email sent</SuccessAlert>}
-        </>
-    )
-}
-
-export default ForgotPassword
+export default ForgotPassword;

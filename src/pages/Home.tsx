@@ -12,7 +12,6 @@ interface Post {
   user?: string;
 }
 
-
 const Home = () => {
   const [user, loading, error] = useAuthState(auth);
   const [posts, setPosts] = useState<Post[]>([]);
@@ -29,8 +28,6 @@ const Home = () => {
       });
       setPosts(posts);
     });
- 
-    
   }, []);
 
   const deletePost = (id: string) => {
@@ -54,7 +51,6 @@ const Home = () => {
       ) : user ? (
         <>
           <p className="title">Welcome {user.displayName}</p>
-          
         </>
       ) : (
         <></>
@@ -66,19 +62,20 @@ const Home = () => {
               <h1 className="title">{posted.title}</h1>
               <p className="text">{posted.post}</p>
               <p className="text">{posted.user}</p>
-              {
-                user?.displayName === posted.user ? (
-                  <button className="delete" onClick={() => deletePost(posted.id)}>Delete</button>              
-                ) : (
-                  <></>
-                )
-
-              }
+              {user?.displayName === posted.user ? (
+                <button
+                  className="delete"
+                  onClick={() => deletePost(posted.id)}
+                >
+                  Delete
+                </button>
+              ) : (
+                <></>
+              )}
             </div>
           </>
         ))}
       </ul>
-      
     </>
   );
 };
