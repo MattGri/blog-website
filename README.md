@@ -1,6 +1,5 @@
 # Project Overview 🎉
-
-A blog website in which you can create account and sign in. After you're logged in, you can create a post and delete it. When you create a post it will show the author of the post.
+A blog website where you can create an account and sign in. Once logged in, you can create and delete posts. The author of each post will be displayed.
 
 # Technologies 🔧
 
