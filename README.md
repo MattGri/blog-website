@@ -3,11 +3,15 @@ A blog website where you can create an account and sign in. Once logged in, you 
 
 # Technologies 🔧
 
-- html
-- sass
-- typescript
-- react 
-- firebase
+- Typescript
+- React 
+- Scss
+
+# Installation 💾
+
+`git clone https://github.com/MattGri/blog-website.git`
+
+`npm install && npm start`
 
 # Screenshots 📺
 
@@ -22,4 +26,4 @@ If you have any issues, please let me know on mateusz.grzybowski98@gmail.com
 
 # Live 📍
 
-https://poetic-rolypoly-f9f22f.netlify.app/
+You can visit website here: https://poetic-rolypoly-f9f22f.netlify.app/
