@@ -3,7 +3,6 @@ import { auth, googleProvider } from "../config/firebase-config";
 import {
   createUserWithEmailAndPassword,
   signInWithPopup,
-  updateProfile,
 } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { Alert, styled } from "@mui/material";
@@ -42,18 +41,6 @@ const Register = () => {
 
     createUserWithEmailAndPassword(auth, email, password)
       .then(() => {
-        auth.currentUser &&
-          updateProfile(auth.currentUser, {
-            displayName: displayName,
-          })
-            .then(() => {
-              // console.log("Profile updated successfully");
-              // console.log(auth.currentUser?.photoURL);
-            })
-            .catch((error) => {
-              // console.log(error);
-            });
-
         setSuccess(true);
         setTimeout(() => {
           setEmail("");
@@ -62,7 +49,6 @@ const Register = () => {
         }, 2000);
       })
       .catch((error) => {
-        // console.log(error);
         if (error.code === "auth/weak-password") {
           setError("Password should be at least 6 characters");
         } else if (error.code === "auth/email-already-in-use") {
@@ -79,7 +65,6 @@ const Register = () => {
   const signInWithGoogle = () => {
     signInWithPopup(auth, googleProvider)
       .then(() => {
-        // console.log('User logged in');
         navigate("/");
       })
       .catch((error) => {
