@@ -26,4 +26,4 @@ If you have any issues, please let me know on mateusz.grzybowski98@gmail.com
 
 # Live 📍
 
-You can visit website here: https://poetic-rolypoly-f9f22f.netlify.app/
+You can visit website here: https://blog-website-project-app.netlify.app/
