@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { auth } from "../config/firebase-config";
 import { sendPasswordResetEmail } from "firebase/auth";
 import { Alert, styled } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 const ForgotPassword = () => {
   useEffect(() => {
@@ -10,6 +11,8 @@ const ForgotPassword = () => {
 
   const [email, setEmail] = useState<string>("");
   const [success, setSuccess] = useState<boolean>(false);
+
+  const { t } = useTranslation();
 
   const SuccessAlert = styled(Alert)`
     background-color: #0f7512;
@@ -39,19 +42,21 @@ const ForgotPassword = () => {
   return (
     <>
       <div className="wrapper">
-        <h1 className="title">Forgot Password</h1>
+        <h1 className="title">{t("Forgot")}</h1>
         <form className="formSubmit" onSubmit={resetPassword}>
           <input
             className="input"
             type="email"
-            placeholder="email"
+            placeholder={t("Email")}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-          <button className="submit">Reset password</button>
+          <button className="submit">{t("ResetPassword")}</button>
         </form>
       </div>
-      {success && <SuccessAlert severity="success">Email sent</SuccessAlert>}
+      {success && (
+        <SuccessAlert severity="success">{t("EmailSent")}</SuccessAlert>
+      )}
     </>
   );
 };

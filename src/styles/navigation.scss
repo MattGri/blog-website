@@ -11,25 +11,68 @@
   background-color: $blackBackground;
   height: 40px;
 
-  .items {
-    text-decoration: none;
+  .hamburgerIcon {
+    display: none;
     color: $whiteColor;
-    margin: 0 10px;
-    transition: 0.2s;
+    font-size: 20px;
+    cursor: pointer;
 
-    &:hover {
-      color: #4d4d4d;
-    }
-
-    @media (max-width: 425px) {
-      font-size: 13px;
-      margin: 0 5px;
-    }
-
-    @media (max-width: 320px) {
-      font-size: 12px;
+    @media (max-width: 610px) {
+      display: block;
+      position: absolute;
+      right: 10px;
+      top: 10px;
     }
   }
+
+  .navLinks {
+    display: flex;
+
+    @media (max-width: 610px) {
+      display: none;
+      flex-direction: column;
+
+      position: absolute;
+      top: 40px;
+      right: 0;
+      background-color: $blackBackground;
+      padding: 10px;
+    }
+
+    &.open {
+      display: flex;
+      width: 100%;
+      height: 100vh;
+      text-align: center;
+    }
+
+
+    .items {
+      text-decoration: none;
+      color: $whiteColor;
+      margin: 0 10px;
+      transition: 0.2s;
+
+      &:hover {
+        color: #4d4d4d;
+      }
+
+      @media (max-width: 600px) {
+        margin: 20px 0px;
+      }
+
+      @media (max-width: 425px) {
+        font-size: 13px;
+      }
+
+      @media (max-width: 320px) {
+        font-size: 12px;
+      }
+    }
+
+
+  }
+
 
   .signout {
     cursor: pointer;
@@ -45,13 +88,56 @@
       color: #4d4d4d;
     }
 
+     @media (max-width: 600px) {
+       margin: 20px 0px;
+     }
+
     @media (max-width: 425px) {
       font-size: 13px;
-      margin: 0 5px;
     }
 
     @media (max-width: 320px) {
       font-size: 12px;
+    }
+  }
+
+  .selectLanguage {
+    cursor: pointer;
+    color: $whiteColor;
+    background-color: $blackBackground;
+    border: none;
+    font-size: 16px;
+    margin: 0 10px;
+    transition: 0.2s;
+    font-family: 'DM SANS';
+    outline: none;
+
+    &:hover {
+      color: rgb(90, 91, 97);
+    }
+
+    @media (max-width: 600px) {
+      font-size: 13px;
+      width: 150px;
+      display: block;
+      margin: 20px auto;
+    }
+
+    @media (max-width: 320px) {
+      font-size: 12px;
+    }
+
+
+    .languageOption {
+      color: $whiteColor;
+
+      @media (max-width: 425px) {
+        font-size: 13px;
+      }
+
+      @media (max-width: 320px) {
+        font-size: 12px;
+      }
     }
   }
 }

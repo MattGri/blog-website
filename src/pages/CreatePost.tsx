@@ -6,12 +6,15 @@ import { Alert, styled } from "@mui/material";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import "../styles/createPost.scss";
+import { useTranslation } from "react-i18next";
 
 const CreatePost = () => {
   const [title, setTitle] = useState<string>("");
   const [post, setPost] = useState<string>("");
   const [success, setSuccess] = useState<boolean>(false);
   const [error, setError] = useState<string | boolean>(false);
+
+  const { t } = useTranslation();
 
   useEffect(() => {
     document.title = "Create post";
@@ -68,7 +71,7 @@ const CreatePost = () => {
   return (
     <>
       <div className="wrapper">
-        <h1 className="title">Create Post</h1>
+        <h1 className="title">{t("CreatePost")}</h1>
         <form className="formSubmit" onSubmit={createPost}>
           <div>
             <input
@@ -76,7 +79,7 @@ const CreatePost = () => {
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               className="input"
-              placeholder="Title"
+              placeholder={t("Title")}
             />
           </div>
           <div>
@@ -84,16 +87,16 @@ const CreatePost = () => {
               value={post}
               onChange={(e) => setPost(e.target.value)}
               className="input"
-              placeholder="Post"
+              placeholder={t("Post")}
             />
           </div>
-          <button className="submit">create post</button>
+          <button className="submit">{t("CreatePost")}</button>
         </form>
       </div>
 
       {success && (
         <SuccessAlert severity="success">
-          Post created successfully
+          {t("PostCreated")}
         </SuccessAlert>
       )}
       {error && <ErrorAlert severity="error">{error}</ErrorAlert>}

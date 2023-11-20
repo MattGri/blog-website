@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { auth, googleProvider } from "../config/firebase-config";
-import {
-  createUserWithEmailAndPassword,
-  signInWithPopup,
-} from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { Alert, styled } from "@mui/material";
 import "../styles/register.scss";
 import GoogleIcon from "@mui/icons-material/Google";
+import { useTranslation } from "react-i18next";
 
 const Register = () => {
   const [displayName, setDisplayName] = useState<string>("");
@@ -15,6 +13,8 @@ const Register = () => {
   const [password, setPassword] = useState<string>("");
   const [success, setSuccess] = useState<boolean>(false);
   const [error, setError] = useState<string | boolean>(false);
+
+  const { t } = useTranslation();
 
   const SuccessAlert = styled(Alert)`
     background-color: #0f7512;
@@ -76,19 +76,19 @@ const Register = () => {
   return (
     <>
       <div className="wrapper">
-        <h1 className="title">Create account</h1>
+        <h1 className="title">{t("CreateAccount")}</h1>
         <form className="formSubmit" onSubmit={handleSubmit}>
           <input
             type="text"
             className="input"
-            placeholder="display name"
+            placeholder={t("DisplayName")}
             value={displayName}
             onChange={(e) => setDisplayName(e.target.value)}
           />
           <input
             type="email"
             value={email}
-            placeholder="email"
+            placeholder={t("Email")}
             onChange={(e) => setEmail(e.target.value)}
             className="input"
             required
@@ -96,21 +96,23 @@ const Register = () => {
           <input
             type="password"
             value={password}
-            placeholder="password"
+            placeholder={t("Password")}
             onChange={(e) => setPassword(e.target.value)}
             className="input"
             required
           />
-          <p className="text">or use google account</p>
+          <p className="text">{t("Google")}</p>
           <div className="googleIcon" onClick={signInWithGoogle}>
             <GoogleIcon />
           </div>
-          <button className="submit">Register</button>
+          <button className="submit">{t("Register")}</button>
         </form>
       </div>
 
       {success && (
-        <SuccessAlert severity="success">Registration completed</SuccessAlert>
+        <SuccessAlert severity="success">
+          {t("RegistrationCompleted")}
+        </SuccessAlert>
       )}
       {error && <ErrorAlert severity="warning">{error}</ErrorAlert>}
     </>
