@@ -1,5 +1,5 @@
 # Project Overview 🎉
-A blog website where you can create an account and sign in. Once logged in, you can create and delete posts. The author of each post will be displayed.
+A blog website where you can create an account and sign in. Once logged in, you can create and delete posts. The author of each post will be displayed, and you can add or delete comments on every post.
 
 # Technologies 🔧
 
@@ -15,9 +15,10 @@ A blog website where you can create an account and sign in. Once logged in, you 
 
 # Screenshots 📺
 
-![image](https://user-images.githubusercontent.com/61913031/193800433-ea77b970-0521-4b2d-a312-856598051047.png)
-![image](https://user-images.githubusercontent.com/61913031/193800934-07edd85c-fd69-4990-b935-2ccee3d84618.png)
-![image](https://user-images.githubusercontent.com/61913031/193801080-72c071ae-7ba5-4582-acd5-a92a87928d48.png)
+![image](https://github.com/MattGri/blog-website/assets/61913031/f7e06aa5-d1e0-451b-ad77-c5bd9e06ade9)
+![image](https://github.com/MattGri/blog-website/assets/61913031/10a23874-b978-4c5f-a08a-3889f4d0dc67)
+![image](https://github.com/MattGri/blog-website/assets/61913031/bf306415-d928-4cd5-b3f5-c60aa64c1380)
+
 
 
 # Issues 🔍
