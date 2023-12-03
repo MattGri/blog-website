@@ -9,9 +9,9 @@ A blog website where you can create an account and sign in. Once logged in, you 
 
 # Installation 💾
 
-`git clone https://github.com/MattGri/blog-website.git`
-
-`npm install && npm start`
+1. Clone the repository `git clone https://github.com/MattGri/blog-website.git`
+2. Install dependencies `npm install`
+3. At the terminal run the command `npm run start`
 
 # Screenshots 📺
 
